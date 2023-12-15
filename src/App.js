@@ -43,15 +43,8 @@ function App() {
     
    
   }
-  const fetchLogo = async(symbol)=>{
-    const api = `https://cors-anywhere.herokuapp.com/https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`
-    console.log(api);
-    const responseSymbol = await axios.get(api)
-    console.log(responseSymbol);
-  }
-
+  
   const viewMore = ()=>{
-    // console.log("View More button clicked");
     fetchData(fetchedTill+20)
     setFetchedTill(fetchedTill+20)
 
@@ -122,15 +115,15 @@ function App() {
           <tr key={idx} className="bodyTable align-middle">
           <td>{item.rank}</td>
           <td>
-          {/* <div className="row"> */}
-            {/* <div className="col">
-              <img src="" alt="logo" className="image" />
-            </div> */}
+          <div className="row"> 
+            <div className="col">
+              <img src={`https://assets.coincap.io/assets/icons/${item.symbol.toLowerCase()}@2x.png`} alt="logo" width="40px" height="40px" className="image" />
+            </div>
             <div className="col">
               <div className="row name">{item.name}</div>
               <div className="row symbol">{item.symbol}</div>
             </div>
-          {/* </div> */}
+          </div>
           </td>
 
           <td>${Number(item.priceUsd).toFixed(2)}</td>
